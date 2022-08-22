@@ -1,4 +1,4 @@
-use crate::window::Id;
+use crate::window::PaneId;
 use std::{
     fmt::{self, Write},
     ops::RangeBounds,
@@ -9,8 +9,8 @@ pub use pane::Pane;
 mod pane;
 
 pub trait Render {
-    fn id(&self) -> &Id<'_>;
-    fn id_mut(&mut self) -> &mut Id<'_>;
+    fn id(&self) -> &PaneId;
+    fn id_mut(&mut self) -> &mut PaneId;
 
     /// Render/Rerender the full pane.
     fn render(&mut self, pane: Pane<impl Write>) -> fmt::Result;
